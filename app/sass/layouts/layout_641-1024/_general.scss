@@ -1,0 +1,393 @@
+.wrapper-card{
+    @include display(flex);
+    @include justify-content(space-between);
+    @include flex-wrap(wrap);
+    margin-top: 100px;
+
+    .title-card-mobile{
+      display: block;
+      font: {
+        family: $oswald;
+        size: rem(24px);
+        weight: 700;
+      }
+      text-transform: uppercase;
+      line-height: 30px;
+      margin: 0 0 20px 10px;
+      width: 100%;
+
+    }
+  }
+
+.wrapper-img{
+  width: 48%;
+  margin: 0 0 0 10px;
+  position: relative;
+
+  @include e(img){
+    width: 100%;
+  }
+
+  .socialBlock-tablet{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 15px;
+
+    @include e(link){
+      width: 41px;
+      height: 41px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 41px;
+      border: 2px solid $ratingText;
+      cursor: pointer;
+      margin-top: 15px;
+
+      a{
+        width: 41px;
+        height: 41px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 35px;
+        font-size: rem(24px);
+        color: $ratingText;
+      }
+    }
+  }
+}
+
+  .wrapper-info{
+    width: 48%;
+    position: relative;
+    margin: 0 10px 0 0;
+
+    @include e(titleCard){
+      display: none;
+    }
+
+    @include e(itemNumber){
+      opacity: 0.7;
+      color: $itemNumber;
+      font: {
+        family: $openSans;
+        size: rem(11px);
+        weight: 400;
+      }
+      margin: 0;
+      letter-spacing: 1px;
+    }
+
+    .card-prize{
+      font: {
+        family: $openSans;
+        weight: 700;
+        size: rem(36px);
+      }
+
+      @include e(old){
+        color: $itemNumber;
+        text-decoration: line-through;
+      }
+
+      @include e(new){
+        color: $prizeNew;
+        margin: 0 0 0 22px;
+      }
+    }
+
+    .rating{
+      @include display(flex);
+
+      .ratized input[type="radio"]:checked+label:before {
+        position: absolute;
+        top: 0;
+        right: 2px;
+      }
+
+      .ratized {
+        position: relative;
+      }
+
+      .ratized input[type="radio"] {
+        position: fixed;
+        top: 0;
+        right: 100%;
+      }
+
+
+      .ratized label {
+        font-size: 1.3em;
+        cursor: pointer;
+      }
+
+      .ratized input[type="radio"]:checked ~ input + label {
+        background: none;
+        color: #aaa;
+      }
+
+      .ratized input + label {
+        color: $prizeNew;
+      }
+
+      .socialBlock-mobile{
+        display: none;
+      }
+
+      @include e(ul){
+        @include display(flex);
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      @include e(text){
+        display: none;
+      }
+
+      .wrapper-pop-up{
+        display: none;
+      }
+    }
+
+    .description{
+      max-width: 284px;
+      margin: 10px 0 0 0;
+
+
+      @include e(details){
+        display: block;
+        margin-bottom: 5px;
+        font: {
+          family: $openSans;
+          size: rem(14px);
+          weight: 700;
+        }
+        text-transform: uppercase;
+      }
+
+      p{
+        color: $description;
+        font: {
+          family: $openSans;
+          size: rem(12px);
+          weight: 300;
+        }
+        line-height: 16px;
+      }
+    }
+
+    .card-size-mobile,
+    .card-color-mobile{
+      display: none;
+    }
+
+    .card-size{
+      @include display(flex);
+      margin: 10px 0 0 0;
+
+      @include e(text){
+        line-height: 40px;
+        color: $itemNumber;
+        font: {
+          family: $openSans;
+          size: rem(14px);
+          weight: 700;
+        }
+        text-transform: uppercase;
+        margin-right: 20px;
+      }
+
+      @include e(size){
+        width: 40px;
+        height: 40px;
+        border: 1px solid $gray;
+        border-radius: 50%;
+        text-align: center;
+        margin: 0 0 0 15px;
+        cursor: pointer;
+        transition: .5s;
+
+        span{
+          line-height: 39px;
+          text-transform: uppercase;
+          font: {
+            family: $openSans;
+            weight: 700;
+            size: rem(13px);
+          }
+        }
+
+        &:hover{
+          box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.5);
+        }
+      }
+    }
+
+    .card-color{
+      @include display(flex);
+      margin: 10px 0 0 0;
+
+      @include e(text){
+        line-height: 40px;
+        color: $itemNumber;
+        font: {
+          family: $openSans;
+          size: rem(14px);
+          weight: 700;
+        }
+        text-transform: uppercase;
+      }
+
+      @include e(color){
+        width: 43px;
+        height: 43px;
+        border: 1px solid $gray;
+        border-radius: 50%;
+        text-align: center;
+        margin: 0 0 0 15px;
+        cursor: pointer;
+        transition: .5s;
+        background-color: $colorPicker1;
+
+        @include m(second) {
+          background-color: $colorPicker2;
+        }
+
+        @include m(third) {
+          background-color: $colorPicker3;
+        }
+
+        @include m(fourth) {
+          background-color: $colorPicker4;
+        }
+
+        span{
+          line-height: 39px;
+          text-transform: uppercase;
+          font: {
+            family: 'Open Sans', sans-serif;
+            size: rem(13px);
+          }
+        }
+
+        &:hover{
+          box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.5);
+        }
+      }
+    }
+
+    .wrapper-add-to-card{
+
+      .add-to-card-button{
+        width: 214px;
+        height: 44px;
+        background-color: $button;
+        text-transform: uppercase;
+        border: none;
+        border-radius: 20px;
+        margin: 21px 0 0 0;
+        font: {
+          family: $openSans;
+          size: rem(18px);
+          weight: 700;
+        }
+        cursor: pointer;
+        outline: none;
+        transition: .5s;
+
+        &:hover{
+          background-color: $buttonHover;
+        }
+      }
+    }
+  }
+
+  .cards{
+
+    .title-cards{
+      margin: 55px 5px 15px 5px;
+      text-transform: uppercase;
+      color: $itemNumber;
+      font: {
+        family: $openSans;
+        size: rem(22px);
+        weight: 700;
+      }
+      letter-spacing: 2px;
+      text-align: center;
+    }
+
+    .wrapper-cards{
+      @include display(flex);
+      @include flex-wrap(wrap);
+      @include justify-content(space-between);
+      margin: 0 5px 100px 5px;
+
+      .card{
+        width: 48%;
+        position: relative;
+        margin-bottom: 50px;
+
+        @include e(img){
+          width: 100%;
+        }
+
+        .prize{
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          background-color: rgba(138, 230, 207,0.6);
+          width: 100%;
+          height: 30px;
+          text-align: center;
+          line-height: 30px;
+
+          @include e(old){
+            font: {
+              family: $openSans;
+              size: rem(22px);
+              weight: 700;
+            }
+            display: none;
+          }
+
+          @include e(new){
+            margin: 0 12px 0 0;
+            color: $prizeNew;
+            font: {
+              family: $openSans;
+              size: rem(22px);
+              weight: 700;
+            }
+          }
+
+          @include e(default){
+            margin: 0 5px;
+            font: {
+              family: $openSans;
+              size: rem(22px);
+              weight: 700;
+            }
+          }
+        }
+
+        @include e(title) {
+          position: absolute;
+          width: 100%;
+          font: {
+            family: $openSans;
+            size: rem(16px);
+            weight: 700;
+          }
+          text-transform: uppercase;
+          text-align: center;
+          margin-top: 10px;
+        }
+      }
+    }
+
+    #gallery{
+      display: none;
+    }
+  }
