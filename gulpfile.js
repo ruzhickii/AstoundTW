@@ -19,6 +19,15 @@ gulp.task('sass', function(){
 		.pipe(browserSync.reload({stream: true}))
 });
 
+gulp.task('sassBuild', function(){
+	return gulp.src('app/sass/**/*.scss')
+		.pipe(sass())
+		.pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
+		.pipe(gulp.dest('dist/css'))
+		.pipe(browserSync.reload({stream: true}))
+});
+
+
 gulp.task('browser-sync', function() {
 	browserSync({
 		server: {
@@ -66,7 +75,7 @@ gulp.task('img', function() {
 		.pipe(gulp.dest('dist/img'));
 });
 
-gulp.task('build', ['clean', 'img', 'sass', 'scripts'], function() {
+gulp.task('build', ['clean', 'img', 'sassBuild', 'scripts'], function() {
 
 	var buildCss = gulp.src([
 		'app/css/main.css',
